@@ -1,0 +1,61 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: black;
+    overflow: hidden;
+}
+.firework{
+    position: absolute;
+    background: yellow;
+    border-radius: 50%;
+    transform: translate(-5px,-5px);
+    display: none;
+}
+.firework .spark{
+    position: absolute;
+    width: 2px;
+    background: inherit;
+    top:50%;
+    left:50%;
+    transform-origin: 0 0;
+    animation: spark 1s ;
+    animation-fill-mode: forwards;
+}
+@keyframes spark{
+    from{
+        height: 0;
+    }
+    to{
+        height: 100px;
+    }
+}
+
+.rocket{
+    width:5px;
+    position: absolute;
+    left: 20%;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+    animation: start 2s linear;
+    animation-fill-mode: forwards;
+}
+.rocket::after{
+    content: '';
+    position: absolute;
+    background-image: linear-gradient(rgb(221, 216, 141), rgba(255,255,255,0));
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    width:100%;
+    height: 500%;
+}
+@keyframes start{
+    0%{
+        top:100%;
+    }    
+    100%{
+        top:25%;
+    }
+}
