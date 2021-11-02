@@ -15,7 +15,8 @@ body{
 }
 .firework .spark{
     position: absolute;
-    width: 2px;
+    width: .3vh;
+    height: 20vh;
     background: inherit;
     top:50%;
     left:50%;
@@ -27,18 +28,17 @@ body{
     from{
         height: 0;
     }
-    to{
-        height: 100px;
-    }
 }
 
 .rocket{
-    width:5px;
+    width: .3vw;
     position: absolute;
     left: 20%;
     height: 5px;
+    top: 25%;
     border-radius: 50%;
     background: white;
+    /* display:none; */
     animation: start 2s linear;
     animation-fill-mode: forwards;
 }
@@ -54,8 +54,87 @@ body{
 @keyframes start{
     0%{
         top:100%;
-    }    
-    100%{
-        top:25%;
+    }
+}
+
+
+
+
+.light{
+    width: 60%;
+    max-width: 200px;
+    height: 30vw;
+    max-height: 100px;
+    position: absolute;
+    bottom:20px;
+    z-index:1;
+}
+.light .side1{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    left:-20%;
+    background: brown;
+    transform: skew(35deg);
+    border-radius: 10%;
+}
+.light .side2{
+    position: absolute;
+    border-radius: 10%;
+    width:100%;
+    height: 100%;
+    left:20%;
+    background: brown;
+    transform: skew(-35deg);
+}
+.light .top{
+    position: absolute;
+    width:170%;
+    height: 50%;
+    left:-35%;
+    top:-20%;
+    border-radius: 50%;
+    background:rgb(56, 9, 9);
+    box-shadow:inset 0 0 0 5px rgb(102, 19, 19);
+}
+.light .fire{
+    position: absolute;
+    width:40%;
+    height: 80%;
+    background: yellow;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+    transform: rotate(-45deg);
+    left:30%;
+    top:-55%;
+    box-shadow: 8px -8px 0 0 yellow, 10px 10px 10x 10px #fff;
+}
+
+.wish{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, orangered,lime,aqua);
+    text-align: center;
+    z-index:1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text 1s infinite;
+}
+@keyframes text{
+    from{
+        filter: hue-rotate(0deg);
+    }
+    to{
+        filter: hue-rotate(360deg);
+    }
+}
+
+@media screen and (min-width: 500px){
+    .wish{
+        font-size: 5vw;
     }
 }
