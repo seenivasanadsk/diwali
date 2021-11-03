@@ -2,6 +2,7 @@ window.onload = () => {
 
     let seeni = () => {
         let body = document.querySelector('body')
+        let music = document.querySelector('audio')
 
         let element = (tag, arg, child) => {
             let element = document.createElement(tag);
@@ -60,7 +61,11 @@ window.onload = () => {
             }
             e.target.style.display = "none";
         }
-        rocket.onanimationstart = () => rocket.style.visibility = "visible"
+        rocket.onanimationstart = () => {
+            rocket.style.visibility = "visible"
+            let promise = music.play();
+            promise.catch(() => {})
+        }
 
         sendroc.appendChild(firework);
         sendroc.appendChild(rocket);
