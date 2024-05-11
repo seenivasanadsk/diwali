@@ -14,13 +14,25 @@
   <body>
     <h1>Seenivasan</h1>
     <video autoplay></video>
+    <button id='zoom'>zoom</button>
     <video autoplay id="output"></video>
     <script>
       let video = document.querySelector("video");
       let image = document.getElementById("output");
+      let zoom = document.getElementById("zoom");
+
+      let zoom_value = 1;
+      
+      zoom.onclick = () => {
+        zoom_value += 0.1
+        video.style.transform = `scale(${zoom_value})`
+      }
+      
       async function trigger() {
         const constraints = {
-          video: true,
+          video: {
+            facingMode: "environment",
+          }
         };
         let stream = await navigator.mediaDevices.getUserMedia(constraints);
         video.srcObject = stream;
