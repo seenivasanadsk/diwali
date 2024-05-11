@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      video {
+        width: 500px;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Seenivasan</h1>
+    <video autoplay></video>
+    <video autoplay id="output"></video>
+    <script>
+      let video = document.querySelector("video");
+      let image = document.getElementById("output");
+      async function trigger() {
+        const constraints = {
+          video: true,
+        };
+        let stream = await navigator.mediaDevices.getUserMedia(constraints);
+        video.srcObject = stream;
+        let track = stream.getTracks()[0];
+        console.log(track.getCapabilities());
+        let capture = new ImageCapture(track);
+        console.log(capture);
+      }
+      trigger();
+
+      async function openImage(capture) {
+        let blob = await capture.takePhoto();
+        let download = document.createElement("a");
+        download.setAttribute("href", URL.createObjectURL(blob));
+        download.download;
+        download.click();
+      }
+    </script>
+  </body>
+</html>
