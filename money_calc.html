@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+	<title>Money Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: arial;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+		main {
+			border: 2px solid black;
+			min-width: 250px;
+			padding: 20px;
+		}
+		h1 { text-align: center }
+		div.input-group {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px;
+			font-size: 20px;
+		}
+		div input {
+			padding: 10px;
+			font-size: 20px;
+		}
+		.output {
+			font-size: 30px;
+			border: 2px solid blue;
+			padding: 10px;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Money Calculator</h1>
+		<div class="output">
+			&#x20b9;
+			<span id="output_screen"></span>
+		</div>
+		<div class="input-group">
+			<label>500</label>
+			<input type="number" oninput="calc()" id="count500" min=0 max=999></input>			
+		</div>
+		<div class="input-group">
+			<label>200</label>
+			<input type="number" oninput="calc()" id="count200" min=0 max=999></input>			
+		</div>
+		<div class="input-group">
+			<label>100</label>
+			<input type="number" oninput="calc()" id="count100" min=0 max=999></input>			
+		</div>
+		<div class="input-group">
+			<label>50</label>
+			<input type="number" oninput="calc()" id="count50" min=0 max=999></input>			
+		</div>
+		<div class="input-group">
+			<label>20</label>
+			<input type="number" oninput="calc()" id="count20" min=0 max=999></input>			
+		</div>
+		<div class="input-group">
+			<label>10</label>
+			<input type="number" oninput="calc()" id="count10" min=0 max=999></input>			
+		</div>
+	</main>
+	<script>
+		let output = document.getElementById('output_screen');
+		let count500 = document.getElementById('count500');
+		let count200 = document.getElementById('count200');
+		let count100 = document.getElementById('count100');
+		let count50 = document.getElementById('count50');
+		let count20 = document.getElementById('count20');
+		let count10 = document.getElementById('count10');
+		function calc() {
+			let result = 0;
+			result += count500.value ? parseInt(count500.value) * 500 : 0;
+			result += count200.value ? parseInt(count200.value) * 200 : 0;
+			result += count100.value ? parseInt(count100.value) * 100 : 0;
+			result += count50.value ? parseInt(count50.value) * 50 : 0;
+			result += count20.value ? parseInt(count20.value) * 20 : 0;
+			result += count10.value ? parseInt(count10.value) * 10 : 0;
+			output.innerHTML = result;
+		}
+	</script>
+</body>
+</html>
